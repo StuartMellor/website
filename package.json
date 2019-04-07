@@ -1,0 +1,22 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cc",
+  "license": "ISC",
+  "keywords": [
+    "c"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StuartMellor/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StuartMellor/website/issues"
+  },
+  "homepage": "https://github.com/StuartMellor/website#readme",
+  "description": ""
+}
