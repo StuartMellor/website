@@ -4,14 +4,15 @@
 		"main": "app.js",
 		"scripts": {
 				"test": "echo \"Error: no test specified\" && exit 1",
-				"start": "nodemon -w dist/server.js dist/server.js",
+				"start":  "node dist/server.js",
+				"nstart": "nodemon -w dist/server.js dist/server.js",
 				"compile-server": "babel server --presets=env --out-dir dist --source-maps",
 				"watch-server": "babel server --presets=env --out-dir dist --source-maps --watch",
 				"start-hook": "nodemon -w server server/start_hook.js",
 				"compile": "webpack",
 				"watch": "babel src --presets react --out-dir static -watch",
 				"startFS": "nodemon -w dist/fileServer.js dist/fileServer.js",
-				"dev-all": "concurrently \"npm run watch\" \"npm run watch-server\" \" npm start\" \"webpack \"",
+				"dev-all": "concurrently \"npm run watch\" \"npm run watch-server\" \" npm nstart\" \"webpack \"",
 				"dev-all-hook": "npm run watch ; npm run start-hook",
 				"lint": "eslint --ext js,jsx src server webpack.config.js"
 		},
