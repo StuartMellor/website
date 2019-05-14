@@ -18,6 +18,12 @@ app.get('/api/test', (req, res) => {
 	res.json({test: test});
 })
 
-app.listen(8080, function () {
-	console.log('App started on port 8080');
+app.get('/', function(req, res, next) {
+    res.send("Hello world");
 });
+
+app.listen(8080, function () {
+	console.log('App started on port 8000');
+});
+
+console.log("hello)");
