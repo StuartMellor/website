@@ -23,6 +23,12 @@ var app = (0, _express2.default)();
 app.use(_bodyParser2.default.json());
 app.use(_express2.default.static('static'));
 
+var test = require('../static/dat/test.json');
+
+app.get('/api/test', function (req, res) {
+	res.json({ test: test });
+});
+
 app.listen(8080, function () {
 	console.log('App started on port 8080');
 });

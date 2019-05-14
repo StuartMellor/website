@@ -12,6 +12,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('static'));
 
+var test = require('../static/dat/test.json');
+
+app.get('/api/test', (req, res) => {
+	res.json({test: test});
+})
+
 app.listen(8080, function () {
 	console.log('App started on port 8080');
 });
