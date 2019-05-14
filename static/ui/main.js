@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -11,12 +11,12 @@ class Main extends React.Component {
 
     render() {
         return React.createElement(
-            "div",
-            { style: { border: '2px solid #000000' }, className: "pageBox" },
+            'div',
+            { style: { border: '2px solid #000000' }, className: 'pageBox' },
             React.createElement(
-                "span",
-                null,
-                "Hello World"
+                'span',
+                { style: { width: '100%', height: '100%', fontFamily: 'Archivo Narrow', fontWeight: '700', textAlign: 'center' } },
+                'Hello Charlotte :)'
             )
         );
     }
