@@ -13,5 +13,5 @@ app.use(bodyParser.json());
 app.use(express.static('static'));
 
 app.listen(8080, function () {
-	console.log('App started on port 3000');
+	console.log('App started on port 8080');
 });
