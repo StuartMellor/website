@@ -17,7 +17,8 @@ export default class Main extends React.Component {
                     <br/>
                     Check back soon....
                     <br/>
-                    Email: stuart_m_mellor@hotmail.com
+                    <h2 style={{fontFamily: 'Archivo Narrow', fontWeight: '700', fontSize: '40px'}}>Email: stuart_m_mellor@hotmail.com</h2>
+                    
                     
             </div>
         )

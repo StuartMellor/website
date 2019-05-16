@@ -17,7 +17,11 @@ class Main extends React.Component {
             React.createElement('br', null),
             'Check back soon....',
             React.createElement('br', null),
-            'Email: stuart_m_mellor@hotmail.com'
+            React.createElement(
+                'h2',
+                { style: { fontFamily: 'Archivo Narrow', fontWeight: '700', fontSize: '40px' } },
+                'Email: stuart_m_mellor@hotmail.com'
+            )
         );
     }
 
