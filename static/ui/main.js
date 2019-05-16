@@ -13,7 +13,11 @@ class Main extends React.Component {
         return React.createElement(
             'div',
             { style: { margin: '20% 0 0 0 ', width: '100%', height: '100%', fontFamily: 'Archivo Narrow', fontWeight: '700', fontSize: '75px', textAlign: 'center' } },
-            'Site under construction! Check back soon.... Email: stuart_m_mellor@hotmail.com'
+            'Site under construction!',
+            React.createElement('br', null),
+            'Check back soon....',
+            React.createElement('br', null),
+            'Email: stuart_m_mellor@hotmail.com'
         );
     }
 
