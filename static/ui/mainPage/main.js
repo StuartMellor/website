@@ -1,10 +1,15 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _main = _interopRequireDefault(require("./ui/mainPage/main.jsx"));
+var _introMessage = _interopRequireDefault(require("./introMessage.jsx"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -28,39 +33,36 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var contentNode = document.getElementById('contents');
-
-var Page =
+var Main =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Page, _React$Component);
+  _inherits(Main, _React$Component);
 
-  function Page() {
-    var _getPrototypeOf2;
-
+  function Main() {
     var _this;
 
-    _classCallCheck(this, Page);
+    _classCallCheck(this, Main);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Main).call(this));
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Page)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _defineProperty(_assertThisInitialized(_this), "fun", function () {
+      return 'hello';
+    });
 
-    _defineProperty(_assertThisInitialized(_this), "initPage", function () {});
-
+    _this.state = {
+      page: 0
+    };
     return _this;
   }
 
-  _createClass(Page, [{
+  _createClass(Main, [{
     key: "render",
     value: function render() {
-      return _react["default"].createElement("div", null, _react["default"].createElement(_main["default"], null));
+      return _react["default"].createElement("div", null, _react["default"].createElement(_introMessage["default"], null));
     }
   }]);
 
-  return Page;
+  return Main;
 }(_react["default"].Component);
 
-_reactDom["default"].render(_react["default"].createElement(Page, null), contentNode);
+exports["default"] = Main;

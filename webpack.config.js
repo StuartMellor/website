@@ -1,31 +1,37 @@
 module.exports = {
-	entry : './src/App.jsx',
-	output : {
-		path : 'D:\\Google Drive\\Website\\static',
-		filename : 'app.bundle.js'
-	},
-	devtool : 'source-map',
+  entry: './src/App.jsx',
+  output: {
+    path: 'D:\\Google Drive\\Website\\static',
+    filename: 'app.bundle.js',
+  },
+  devtool: 'source-map',
 
-	module : {
-		loaders : [ {
-			test : /\.css$/,
-			loader : 'style-loader'
-		}, {
-			test : /\.css$/,
-			loader : 'css-loader',
-			query : {
-				modules : true,
-				localIdentName : '[name]__[local]___[hash:base64:5]'
-			}
-		}, {
-			test : /\.jsx$/,
-			loader : 'babel-loader',
+  module: {
+    rules: [
 
-			query : {
-				presets : [ 'react', 'env' ]
-			}
-		}, ]
-	},
-	watch : true
+
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          emitError: true,
+        },
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
+      },{
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      }
+
+
+		  ]
+		  ,
+  },
+  watch: true,
+  mode: 'development',
 };
-

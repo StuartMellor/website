@@ -1,17 +1,25 @@
-const contentNode = document.getElementById( 'contents' );
-import Main from './ui/main.jsx';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from './ui/mainPage/main.jsx';
+
+const contentNode = document.getElementById('contents');
 
 class Page extends React.Component {
-    render() {
-        console.log("Rendering main page!");
-        return(
-            <div>
-                <Main/>
-            </div>
-        )
-    }
+
+
+  initPage = () => {
+
+  }
+
+
+  render() {
+    return (
+      <div>
+        <Main />
+      </div>
+    );
+  }
 }
 
 
-
-ReactDOM.render(<Page />, contentNode); 
+ReactDOM.render(<Page />, contentNode);

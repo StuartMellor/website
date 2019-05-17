@@ -1,10 +1,17 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _main = _interopRequireDefault(require("./ui/mainPage/main.jsx"));
+require("../../../static/ui-style.css");
+
+var _reactTransitionGroup = require("react-transition-group");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -28,39 +35,64 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var contentNode = document.getElementById('contents');
-
-var Page =
+var IntroMessage =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Page, _React$Component);
+  _inherits(IntroMessage, _React$Component);
 
-  function Page() {
-    var _getPrototypeOf2;
-
+  function IntroMessage() {
     var _this;
 
-    _classCallCheck(this, Page);
+    _classCallCheck(this, IntroMessage);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(IntroMessage).call(this));
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Page)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      showText: true
+    });
 
-    _defineProperty(_assertThisInitialized(_this), "initPage", function () {});
+    _defineProperty(_assertThisInitialized(_this), "toggleAppear", function () {
+      _this.setState({
+        showText: !_this.state.showText
+      });
+    });
 
     return _this;
   }
 
-  _createClass(Page, [{
+  _createClass(IntroMessage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "render",
     value: function render() {
-      return _react["default"].createElement("div", null, _react["default"].createElement(_main["default"], null));
+      var showText = this.state.showText;
+      return _react["default"].createElement("div", {
+        style: {
+          margin: '20% 0 0 0 ',
+          width: '100%',
+          height: '100%',
+          fontFamily: 'Archivo Narrow',
+          fontWeight: '700',
+          fontSize: '75px',
+          textAlign: 'center'
+        }
+      }, _react["default"].createElement(_reactTransitionGroup.CSSTransition, {
+        "in": showText,
+        appear: true,
+        timeout: 1200,
+        classNames: "fade"
+      }, _react["default"].createElement("div", null, "Site under construction!", _react["default"].createElement("br", null), "Check back soon....", _react["default"].createElement("br", null), _react["default"].createElement("h2", {
+        style: {
+          fontFamily: 'Archivo Narrow',
+          fontWeight: '700',
+          fontSize: '40px'
+        }
+      }, "Email: stuart_m_mellor@hotmail.com"))));
     }
   }]);
 
-  return Page;
+  return IntroMessage;
 }(_react["default"].Component);
 
-_reactDom["default"].render(_react["default"].createElement(Page, null), contentNode);
+exports["default"] = IntroMessage;
