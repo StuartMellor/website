@@ -1,10 +1,13 @@
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
+var _feedTemplate = _interopRequireDefault(require("./feedTemplate.jsx"));
 
-var _main = _interopRequireDefault(require("./ui/mainPage/main.jsx"));
+var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -28,48 +31,72 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var contentNode = document.getElementById('contents');
-
-var FullPage =
+var Composition =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(FullPage, _React$Component);
+  _inherits(Composition, _React$Component);
 
-  function FullPage() {
-    var _getPrototypeOf2;
-
+  function Composition() {
     var _this;
 
-    _classCallCheck(this, FullPage);
+    _classCallCheck(this, Composition);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Composition).call(this));
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FullPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      feeds: []
+    });
 
-    _defineProperty(_assertThisInitialized(_this), "initPage", function () {});
+    _defineProperty(_assertThisInitialized(_this), "loadFeed", function () {
+      var rawFeed;
+      var formattedFeed = [];
+
+      _axios["default"].get('http://localhost:8080/api/feed').then(function (res) {
+        rawFeed = res.data.feed;
+
+        for (var i in rawFeed) {
+          formattedFeed.push(React.createElement(_feedTemplate["default"], {
+            key: i,
+            title: rawFeed[i].title,
+            date: rawFeed[i].date,
+            body: rawFeed[i].body
+          }));
+        }
+
+        formattedFeed.reverse();
+
+        _this.setState({
+          feeds: formattedFeed
+        });
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addFeed", function (_FeedTemplate) {});
 
     return _this;
   }
 
-  _createClass(FullPage, [{
+  _createClass(Composition, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.loadFeed();
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react["default"].createElement("div", {
-        className: "App",
-        style: {
-          position: "fixed",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%"
-        }
-      }, _react["default"].createElement(_main["default"], null));
+      var feeds;
+      console.log(this.state.feeds);
+      if (typeof this.state.feeds != "undefined" && this.state.feeds.length > 0) feeds = this.state.feeds.map(function (feed) {
+        return feed;
+      });else if (this.state.feeds.length == 1) feeds = this.state.feeds[0];else feeds = React.createElement("div", null, "Feed Space");
+      console.log(feeds);
+      return React.createElement("div", {
+        className: "Composition"
+      }, React.createElement("h2", null, "Project Feed"), feeds);
     }
   }]);
 
-  return FullPage;
-}(_react["default"].Component);
+  return Composition;
+}(React.Component);
 
-_reactDom["default"].render(_react["default"].createElement(FullPage, null), contentNode);
+exports["default"] = Composition;

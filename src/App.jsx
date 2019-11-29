@@ -4,7 +4,7 @@ import Main from './ui/mainPage/main.jsx';
 
 const contentNode = document.getElementById('contents');
 
-class Page extends React.Component {
+class FullPage extends React.Component {
 
 
   initPage = () => {
@@ -14,7 +14,7 @@ class Page extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={"App"} style={{position: "fixed", left: 0, top: 0, width: "100%", height: "100%"}}>
         <Main />
       </div>
     );
@@ -22,4 +22,4 @@ class Page extends React.Component {
 }
 
 
-ReactDOM.render(<Page />, contentNode);
+ReactDOM.render(<FullPage />, contentNode);

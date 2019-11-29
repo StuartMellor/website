@@ -1,12 +1,9 @@
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _main = _interopRequireDefault(require("./ui/mainPage/main.jsx"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -18,58 +15,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var contentNode = document.getElementById('contents');
-
-var FullPage =
+var FeedTemplate =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(FullPage, _React$Component);
+  _inherits(FeedTemplate, _React$Component);
 
-  function FullPage() {
-    var _getPrototypeOf2;
+  function FeedTemplate(props) {
+    _classCallCheck(this, FeedTemplate);
 
-    var _this;
-
-    _classCallCheck(this, FullPage);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FullPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "initPage", function () {});
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(FeedTemplate).call(this));
   }
 
-  _createClass(FullPage, [{
+  _createClass(FeedTemplate, [{
     key: "render",
     value: function render() {
-      return _react["default"].createElement("div", {
-        className: "App",
-        style: {
-          position: "fixed",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%"
-        }
-      }, _react["default"].createElement(_main["default"], null));
+      console.log(this.props);
+      return React.createElement("div", null, React.createElement("h3", {
+        className: "feedTitle"
+      }, this.props.title), this.props.body, React.createElement("h4", null, this.props.date));
     }
   }]);
 
-  return FullPage;
-}(_react["default"].Component);
+  return FeedTemplate;
+}(React.Component);
 
-_reactDom["default"].render(_react["default"].createElement(FullPage, null), contentNode);
+exports["default"] = FeedTemplate;

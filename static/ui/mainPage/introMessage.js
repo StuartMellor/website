@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-require("../../../static/ui-style.css");
+require("../../../static/styling/ui-style.css");
 
 var _reactTransitionGroup = require("react-transition-group");
 

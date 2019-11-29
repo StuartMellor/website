@@ -12,10 +12,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('static'));
 
-const test = require('../static/dat/test.json');
+const feed = require('../static/dat/feed.json');
 
-app.get('/api/test', (req, res) => {
-  res.json({ test });
+app.get('/api/feed', (req, res) => {
+  res.json({ feed });
 });
 
 app.get('/', (req, res, next) => {

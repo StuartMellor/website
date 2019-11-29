@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import '../../../static/ui-style.css';
+import '../../../static/styling/ui-style.css';
 
 import { CSSTransition } from 'react-transition-group';
 

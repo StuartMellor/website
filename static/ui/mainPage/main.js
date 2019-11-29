@@ -11,6 +11,14 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _introMessage = _interopRequireDefault(require("./introMessage.jsx"));
 
+var _page = _interopRequireDefault(require("./page.jsx"));
+
+var _pageHeaer = _interopRequireDefault(require("../pageHeaer.jsx"));
+
+var _navigation = _interopRequireDefault(require("./navigation.jsx"));
+
+var _navBar = _interopRequireDefault(require("./navBar.jsx"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -45,20 +53,41 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Main).call(this));
 
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      page: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changePage", function (id) {
+      console.log(id);
+
+      _this.setState({
+        page: id
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "fun", function () {
       return 'hello';
     });
 
-    _this.state = {
-      page: 0
-    };
     return _this;
   }
 
   _createClass(Main, [{
     key: "render",
+    // <IntroMessage />
     value: function render() {
-      return _react["default"].createElement("div", null, _react["default"].createElement(_introMessage["default"], null));
+      console.log("Mainpage: " + this.state.page);
+      return _react["default"].createElement("div", {
+        className: "Main",
+        style: {
+          width: "100%",
+          height: "100%"
+        }
+      }, _react["default"].createElement(_pageHeaer["default"], null), _react["default"].createElement(_navBar["default"], null), _react["default"].createElement(_page["default"], {
+        page: this.state.page
+      }), _react["default"].createElement(_navigation["default"], {
+        changePage: this.changePage
+      }));
     }
   }]);
 

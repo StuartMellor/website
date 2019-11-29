@@ -16,11 +16,11 @@ var app = (0, _express["default"])();
 app.use(_bodyParser["default"].json());
 app.use(_express["default"]["static"]('static'));
 
-var test = require('../static/dat/test.json');
+var feed = require('../static/dat/feed.json');
 
-app.get('/api/test', function (req, res) {
+app.get('/api/feed', function (req, res) {
   res.json({
-    test: test
+    feed: feed
   });
 });
 app.get('/', function (req, res, next) {

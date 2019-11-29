@@ -1,10 +1,21 @@
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
+var _about = _interopRequireDefault(require("../about/about.jsx"));
 
-var _main = _interopRequireDefault(require("./ui/mainPage/main.jsx"));
+var _projectFeed = _interopRequireDefault(require("../projectFeed/projectFeed.jsx"));
+
+var _composition = _interopRequireDefault(require("../composition/composition.jsx"));
+
+var _software = _interopRequireDefault(require("../software/software.jsx"));
+
+var _contact = _interopRequireDefault(require("../contact/contact.jsx"));
+
+var _crypto = require("crypto");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -28,48 +39,75 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var contentNode = document.getElementById('contents');
-
-var FullPage =
+var Page =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(FullPage, _React$Component);
+  _inherits(Page, _React$Component);
 
-  function FullPage() {
-    var _getPrototypeOf2;
-
+  function Page(props) {
     var _this;
 
-    _classCallCheck(this, FullPage);
+    _classCallCheck(this, Page);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Page).call(this));
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FullPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      page: 0
+    });
 
-    _defineProperty(_assertThisInitialized(_this), "initPage", function () {});
+    _defineProperty(_assertThisInitialized(_this), "getPage", function (page) {
+      switch (page) {
+        case 0:
+          return React.createElement(_about["default"], null);
+          break;
+
+        case 1:
+          return React.createElement(_composition["default"], null);
+          break;
+
+        case 2:
+          return React.createElement(_software["default"], null);
+          break;
+
+        case 3:
+          return React.createElement(_projectFeed["default"], null);
+          break;
+
+        case 4:
+          return React.createElement(_contact["default"], null);
+          break;
+      }
+    });
 
     return _this;
   }
 
-  _createClass(FullPage, [{
+  _createClass(Page, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.setState({
+        page: this.props.page
+      });
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(newProps) {
+      this.setState(function (prevProps) {
+        prevProps = newProps;
+        return prevProps;
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react["default"].createElement("div", {
-        className: "App",
-        style: {
-          position: "fixed",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%"
-        }
-      }, _react["default"].createElement(_main["default"], null));
+      console.log("Page: " + this.state.page);
+      return React.createElement("div", {
+        className: "pageContainer"
+      }, this.getPage(this.state.page));
     }
   }]);
 
-  return FullPage;
-}(_react["default"].Component);
+  return Page;
+}(React.Component);
 
-_reactDom["default"].render(_react["default"].createElement(FullPage, null), contentNode);
+exports["default"] = Page;

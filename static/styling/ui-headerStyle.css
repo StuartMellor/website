@@ -1,0 +1,43 @@
+.headerTitle {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 64px;
+    position: fixed;
+    right: 25px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    height: 415px;
+}
+
+#firstName {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 4em; 
+    font-weight: lighter;
+    text-orientation: upright;
+    color: #00EA89;
+    margin-right: 50px;
+    height: 100%;
+}
+
+#lastName {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 4em;
+    font-weight: 600;
+    font-style: italic;
+    text-orientation: upright;
+    color: #00EA89;
+    height: 100%;
+
+}
+
+.header {
+}
+
+#aboutTitle {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em; 
+    font-weight: lighter;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    color: #22232e; 
+}

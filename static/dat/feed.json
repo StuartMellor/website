@@ -1,0 +1,13 @@
+[
+    {
+        "title": "Hello World",
+        "date": [7, "/", 6, "/", 2019, "-", 15, ":", 49],
+        "body": "This is an example of an entry!"
+    },
+    {
+        "title": "Hello World 2",
+        "date": [7, "/", 8, "/", 2019, "-", 15, ":", 49],
+        "body": "<iframe src=\"https://www.w3schools.com\"></iframe>"
+    }
+
+]

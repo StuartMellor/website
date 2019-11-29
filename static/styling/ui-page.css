@@ -1,0 +1,29 @@
+body {
+    background-color: #00364A;
+}
+
+
+.pageContainer {
+    width: calc(100% - 60px);
+    margin: auto;
+    margin-top: 25px;
+    position: absolute;
+    left: 60px;
+    top: 0;
+    height: calc(100% - 20px);
+}
+
+.pageContainer h2  {
+    font-family: 'Nunito', sans-serif;
+    text-align: left;
+}
+
+.pageContainer h3  {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+.pageContainer p  {
+    font-family: 'roboto', sans-serif;
+    text-align: justify;
+}
